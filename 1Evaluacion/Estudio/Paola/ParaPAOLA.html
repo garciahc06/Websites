@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Paola se te quiere</title>
+    <!--Paola te quiero mucho pero entre q me dejas en visto y me estas tratando de mala forma estos días,
+    me veo en la obligación de realizar esta página web, la cual con su permiso, crearé un servidor web
+    y de este modo tanto tú como cualquiera podrá ver esta maravilla-->
+
+    <!-- IDEAS:
+                -Poema pequeño troll
+                -Párrafos (css y javascript)
+                -links para aparecer fotos :)
+                -links troll diciendo en pestaña: este no es jaja haber estudiado (cosas así)-->
+    <style type="text/css">
+        /*fondo gris oscuro y se va aclarando hacia el centro*/
+        body {
+            background-color: #2c2c2c;
+            background-image: radial-gradient(circle, #6c6060, #575050, #000000);
+        }
+/* la mitad de la distancia del botón se ecuentra alineada en el centro de la pantalla*/
+
+        #registro {
+            position: absolute;
+            top: 150px;
+            left: 635px;
+        }
+
+        #boton2 {
+            position: absolute;
+            top: 200px;
+            left: 625px;
+        }
+
+        #boton3 {
+            position: absolute;
+            top: 250px;
+            left: 624px;
+        }
+        #boton4 {
+            position: absolute;
+            top: 300px;
+            left: 605px;
+        }
+        /* estos 2 botones siguientes se encuentran alineados simetricamente al centro de la pantalla dejando un espacio entre ellos
+        siendo este el propio centro*/
+        #pass1 {
+            position: absolute;
+            top: 300px;
+            left: 500px;
+        }
+        #pass2 {
+            position: absolute;
+            top: 300px;
+            left: 700px;
+        }
+
+
+    </style>
+    <script language="JavaScript">  /* Usamos las funciones en javascript para validar la contraseña y mandar un alert si no coinciden */
+    //Validamos las contraseñas al presionar el enter
+        function validar() {
+            if (event.keyCode == 13) {
+                if (document.getElementById("pass1").value == document.getElementById("pass2").value) {
+                    alert("Contraseña correcta");
+                } else {
+                    if (event.keyCode == 13) {
+                        if (document.getElementById("pass1").value == "" || document.getElementById("pass2").value == "") {
+                            alert("Falta una contraseña");
+                        }else {
+                            alert("Contraseña incorrecta");
+                        }
+                    }
+                }
+            }
+        }
+    //Aquí pondremos el botón de cambio de contraseña y aparecen 2 más para escribir la contraseña y validarlas entre si
+    function cambiar() {
+        document.getElementById("boton4").style.display = "none";
+        document.getElementById("pass1").style.display = "block";
+        document.getElementById("pass2").style.display = "block";
+        document.getElementById("registro").style.display = "block";
+    }
+    </script>
+</head>
+<body>
+<table> <!-- Aquí pondremos la tabla con los botones -->
+    <tr> <!-- Aquí pondremos el botón de registro, que al pulsarlo, nos llevará a una página de registro -->
+        <td>
+            <input type="button" id="registro" onclick="location.href='https://www.youtube.com/watch?v=vb1QCXRhaA4'" value="Registro">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" id="boton2" value="Iniciar sesión" onclick="location.href='ParaPAOLAImagenBuena.html'"> <!--iniciarSesion()-->
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="button" id="boton3" value="Borrar cuenta" onclick="location.href='ParaPAOLAImagenMala.html'"><!--borrarCuenta()-->
+        </td>
+    </tr>
+    <tr>
+        <!-- Aquí pondremos el botón de cambio de contraseña y aparecen 2 más para escribir la contraseña y validarlas entre si-->
+        <td>
+            <input type="button" id="boton4" value="Cambiar contraseña" onclick="cambiar()">
+        </td>
+    </tr>
+    <!-- Ponemos los campos para escribir la contraseña y se pone la funcion validar() para que se cumpla-->
+    <tr>
+        <td>
+            <input type="password" id="pass1" style="display: none" onkeypress="validar()">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="password" id="pass2" style="display: none" onkeypress="validar()">
+        </td>
+    </tr>
+</table>
+</body>
+</html>

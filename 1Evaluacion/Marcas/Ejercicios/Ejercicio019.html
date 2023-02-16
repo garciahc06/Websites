@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!--Una imagen con un boton debajo y cada vez que se pulse el boton se cambia la imagen entre si sucesivamente-->
+    <script language="JavaScript">
+        var i = 0;
+        function cambiar() {
+            if (i !== 0)
+                imagen.src = "../imagenes/RobertJr.jpg";
+             else
+                imagen.src = "../imagenes/thor.jpg";
+            i = (i + 1) % 2;
+        }
+    </script>
+</head>
+<body>
+<img id="imagen" src="../imagenes/thor.jpg" width="150" height="150">
+<img id="imagen2" src="../imagenes/TheRock.jpg" width="150" height="150" style="display: none">
+<br>
+<input type="button" value="Cambiar" onclick="cambiar()">
+</body>
+</html>

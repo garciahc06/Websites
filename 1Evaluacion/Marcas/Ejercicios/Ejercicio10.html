@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tres en raya (fase 2)</title>
+    <style type="text/css">
+        .val {
+            width: 130px;
+            height: 135px;
+            background-color: yellow;
+            text-align: center;
+        }
+
+        .noval {
+            width: 130px;
+            height: 135px;
+            background-color: lime;
+            text-align: center;
+        }
+    </style>
+    <script language="JavaScript">
+        n = 0;
+
+        function cambiar() {
+            objeto = event.srcElement;
+            if (objeto.className == "val") {
+                if (n == 0)
+                    objeto.innerHTML = "<img src=../Imagenes/circulo.jpg width=80 height=50>";
+                else
+                    objeto.innerHTML = "<img src=../Imagenes/cruz.jpg width=80 height=50>";
+                n = 1 - n;
+            }
+        }
+
+        // objeto.className = "noval";
+        // objeto.className = "val";
+    </script>
+</head>
+<body onclick="cambiar()">
+<h1 align="center">
+    TRES EN RAYA
+</h1>
+<table align="center" border="5" cellspacing="5">
+    <tr>
+        <td class="val" align="center">
+            1
+        </td>
+        <td class="val" align="center">
+            2
+        </td>
+        <td class="val" align="center">
+            3
+        </td>
+    </tr>
+    <tr>
+        <td class="val" align="center">
+            4
+        </td>
+        <td class="val" align="center">
+            5
+        </td>
+        <td class="val" align="center">
+            6
+        </td>
+    </tr>
+    <tr>
+        <td class="val" align="center">
+            7
+        </td>
+        <td class="val" align="center">
+            8
+        </td>
+        <td class="val" align="center">
+            9
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

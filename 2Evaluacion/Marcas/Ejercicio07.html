@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jugando con la opacidad</title>
+    <script type="text/javascript" src="jquery/jquery-1.11.2.min.js"></script>
+    <script language="JavaScript">
+        $(document).ready(function(){
+            $("#ocultar").click(function (event){
+                $("#rectangulo").fadeOut(1000);
+            })
+            $("#mostrar").click(function (event){
+                $("#rectangulo").fadeIn(1000, "swing", function(){
+                    alert("Se acabó");
+                });
+            });
+            $("#mostrar2").click(function (event){
+                $("#rectangulo").fadeTo(1000, 0.5, function(){
+                    alert("Se acabó");
+                });
+            });
+            $("#toggle").click(function (event){
+                $("#rectangulo").fadeToggle(2000, function(){
+                    alert("Se acabó");
+                });
+            });
+        })
+    </script>
+    <style type="text/css">
+        #rectangulo {
+            padding: 10px 10px 10px 10px;
+            background: black;
+        }
+    </style>
+</head>
+<body>
+<div id="rectangulo">Rectángulo de ejemplo que variará de opacidad</div>
+<button id="ocultar">Ocultar con fadeOut()</button>
+<button id="mostrar">Mostrar con fadeIn()</button>
+<!-- <input type="button" id="ocultar" value="Ocultar con fadeOut()"> -->
+<!--<input type="button" id="mostrar" value="Mostrar">-->
+<button id="mostrar2">Mostrar con fadeTo()</button>
+<button id="toggle">Mostrar con fadeToggle()</button>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Página de los números</title>
+    <style type="text/css">
+        div {
+            position: absolute;
+        }
+
+        a {
+            font-family: sans-serif;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 30px;
+        }
+
+        #cero {
+            color: red;
+        }
+
+        #uno {
+            color: lime;
+        }
+
+        #dos {
+            color: blue;
+        }
+
+        #tres {
+            color: red;
+        }
+
+        #cuatro {
+            color: magenta;
+        }
+
+        #cinco {
+            color: blue;
+        }
+
+        #seis {
+            color: blue;
+        }
+
+        #siete {
+            color: magenta;
+        }
+
+        #ocho {
+            color: lime;
+        }
+
+        #nueve {
+            color: red;
+        }
+
+        .pregunta {
+            position: absolute;
+            left: 150px;
+            top: 80px;
+            width: 300px;
+            height: 200px;
+            border-width: 6px;
+            border-style: groove;
+            border-color: rgb(56, 194, 248);
+            margin-top: 10px;
+        }
+
+        h3 {
+            color: red;
+            font-family: sans-serif;
+            text-align: center;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            margin-left: 10px;
+            margin-right: 10px;
+            text-align: justify;
+            font-size: 12pt;
+            font-family: Arial, serif;
+            font-weight: bold;
+        }
+
+    </style>
+    <script language="JavaScript">
+        var actual = 1;
+        var respuestas = [7, 8, 2, 0];
+        var aciertos = [0, 0, 0, 0];
+
+        function pasar() {
+            //Pasamos de página en página cuando se pulsa la tecla S o s
+            if (((event.keyCode == '83') || (event.keyCode == '115')) && (actual < 6)) {
+                document.getElementById("pagina" + actual).style.visibility = "hidden";
+                document.getElementById("pagina" + (actual + 1)).style.visibility = "visible";
+                actual++;
+            }
+            //Lo mismo pero con la A y retrocediendo una página
+            if (((event.keyCode == '65') || (event.keyCode == '97')) && (actual > 1)) {
+                document.getElementById("pagina" + actual).style.visibility = "hidden";
+                document.getElementById("pagina" + (actual - 1)).style.visibility = "visible";
+                actual--;
+            }
+        }
+
+        function cotejar(numero) {
+            //Comprobamos si la respuesta a las preguntas son correctas y mostramos el mensaje correspondiente
+            if (numero == respuestas[actual - 3]) {
+                aciertos[actual - 3] = 1;
+                i=0;
+                while ((i < aciertos.length) && (aciertos[i] == 1)  )
+                    i++;
+                if (i == aciertos.length) {
+                    alert("¡¡¡Enhorabuena!!! Has acertado todas las preguntas");
+                }
+            }
+        }
+    </script>
+</head>
+<body onkeypress="pasar()">
+<!-- divs hasta el 9 incluido-->
+<div style="left:200px; top: 0">
+    <a href="" id="cero" onclick="cotejar(0);return false">
+        0
+    </a>
+</div>
+<div style="left:20px; top:75px">
+    <a href="" id="uno" onclick="cotejar(1);return false">
+        1
+    </a>
+</div>
+<div style="left:480px; top:100px">
+    <a href="" id="dos" onclick="cotejar(2);return false">
+        2
+    </a>
+</div>
+<div style="left:100px; top:125px">
+    <a href="" id="tres" onclick="cotejar(3);return false">
+        3
+    </a>
+</div>
+<div style="left:550px; top:75px">
+    <a href="" id="cuatro" onclick="cotejar(4);return false">
+        4
+    </a>
+</div>
+<div style="left:10px; top:175px">
+    <a href="" id="cinco" onclick="cotejar(5);return false">
+        5
+    </a>
+</div>
+<div style="left:475px; top:200px">
+    <a href="" id="seis" onclick="cotejar(6);return false">
+        6
+    </a>
+</div>
+<div style="left:100px; top:225px">
+    <a href="" id="siete" onclick="cotejar(7);return false">
+        7
+    </a>
+</div>
+<div style="left:25px; top:250px">
+    <a href="" id="ocho" onclick="cotejar(8);return false">
+        8
+    </a>
+</div>
+<div style="left:500px; top:300px">
+    <a href="" id="nueve" onclick="cotejar(9);return false">
+        9
+    </a>
+</div>
+<div id="pagina1" class="pregunta">
+    <h3>
+        ¡Bienvenidos a la página de los números!
+    </h3>
+    <p>
+        Para cambiar de página, pulsa la tecla "s/S" para pasar a la siguiente
+        a la siguiente pregunta y la tecla "a/A" para retroceder
+    </p>
+</div>
+<div id="pagina2" class="pregunta" style="visibility:hidden">
+    <p>
+        Para entrar en la página de los números, tendrás que averiguar la combinacion de acceso
+    </p>
+    <p>
+        Se formularán 6 preguntas. Para hallar la combinación de acceso, haz click sobre el número que responda
+        a cada pregunta. Cuando tengas las cuatro, habrás encontrado la <strong>clave</strong> de entrada.
+    </p>
+</div>
+<div id="pagina3" class="pregunta" style="visibility:hidden">
+    <p>
+        Tengo 18 años, réstale 3, despues suma 6 y por último divide por 3. ¿Qué cifra sale?
+    </p>
+</div>
+<div id="pagina4" class="pregunta" style="visibility:hidden">
+    <p>
+        Si cortas una manzana por la mitad, después cortas cada mitad de nuevo en 2 y cada una de estas mitades de nuevo
+        en 2. ¿Qué cifra sale?
+    </p>
+</div>
+<div id="pagina5" class="pregunta" style="visibility:hidden">
+    <p>
+        Igual que 16 es a hexadecimal y 8 a octal, este numero es a binario.
+    </p>
+</div>
+<div id="pagina6" class="pregunta" style="visibility:hidden">
+    <p>
+        Multiplicame o divídeme, pero siempre seré yo. ¿Qué número soy?
+    </p>
+</div>
+</body>
+</html>

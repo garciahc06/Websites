@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualizar - Ocultar</title>
+    <script type="text/javascript" src="jquery/jquery-1.11.2.min.js"></script>
+    <script language="JavaScript">
+        $(document).ready(function (){
+           $("#ocultar").click(function () {
+             $("#boton").hide(4000);
+             $(".imagen").hide(4000);
+           })
+        })
+    </script>
+
+</head>
+<body>
+<button id="boton">Botón aparece y desaparece</button>
+<img src="imagenes/minita.jpg" class="imagen">
+<br><br>
+<button id="mostrar">Click para mostrar elementos</button>
+<button id="ocultar">Click para ocultar elementos</button>
+</body>
+</html>

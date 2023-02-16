@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trabajando con formularios</title>
+</head>
+<body>
+<h1 align="center">FORMULARIO</h1>
+<form method="post" action="programa.php">
+  <!-- action es la pagina a la que se envia el contenido del formulario -->
+  <!-- method es el metodo de envio de datos -->
+  <table align="center" border="1" cellspacing="5">
+    <tr>
+      <td align="right">Introduce tu nombre :</td>
+      <td>
+        <input type="text" size="50" maxlength="20" id="nombre" name="nombre">
+      </td>
+      <!-- name se usa una vez que se envia el formulario para identificar el campo -->
+      <!-- id se usa para identificar el campo en el codigo -->
+    </tr>
+    <tr>
+      <td align="right">Provincia:</td>
+      <td>
+        <select name="Provincia">
+          <option value="22">Huesca</option>
+          <option value="44">Teruel</option>
+          <option value="50">Zaragoza</option>
+          <option value="0" selected>Selecciona una provincia</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td align="right">Edad :</td>
+      <td>
+        Mayor de 60<input type="radio" name="edad" value="1">
+        Entre 30 y 60<input type="radio" name="edad" value="2">
+        Menor de 30<input type="radio" name="edad" value="3">
+      </td>
+    </tr>
+    <tr>
+      <td align="right">Deportes :</td>
+      <td>
+        Balonmano<input type="checkbox" name="deportes" value="1">
+        Baloncesto<input type="checkbox" name="deportes" value="2">
+        Fútbol<input type="checkbox" name="deportes" value="3">
+      </td>
+    </tr>
+    <tr>
+      <td align="right">Comentarios :</td>
+      <td>
+        <textarea name="comentarios" rows="5" cols="50"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="reset" value="Borrar">
+      </td>
+      <td>
+        <input type="submit" value="Enviar">
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

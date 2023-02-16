@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tabla</title>
+  <style type="text/css">
+    /* Modificamos la tabla que se coloca en el centro y arriba de la página*/
+    table {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-style: double;
+      font-family: sans-serif;
+      font-size: 20px;
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+<table id="tablaIS">
+  <tr>
+    <td>Usuario:</td>
+    <td><input type="text" name="usuario" maxlength="16"></td>
+  </tr>
+  <tr>
+    <td>Contraseña:</td>
+    <td><input type="password" name="contraseña"></td>
+  </tr>
+  <tr>
+    <td><input type="submit" value="Iniciar Sesión"></td>
+    <td><input type="reset" value="Borrar"></td>
+  </tr>
+</table>
+</body>
+</html>

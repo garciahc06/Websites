@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movimiento de objtos</title>
+  <style type="text/css">
+    #cruz {
+      position: absolute;
+      top: 100px;
+    }
+  </style>
+  <script language="JavaScript">
+    function mover() { //cada vez que se clica, 10px a la derecha
+      cruz.style.left = parseInt(cruz.style.left) + 10 + "px";
+    }
+  </script>
+</head>
+<body onload="setInterval('mover()', 1000)">
+<div id="cruz" style="left:50px">
+  <img src="../Imagenes/perdigon.jpg">
+</div>
+<input type="button" value="Desplazar" onclick="mover()">
+</body>
+</html>

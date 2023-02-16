@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Añadir botones, método append</title>
+    <script type="text/javascript" src="jquery/jquery-1.11.2.min.js"></script>
+    <script language="JavaScript">
+        var imagen = $("<img>",{src:"imagenes/minita.jpeg", id:"imagen",
+        css:{"padding":"2px","cursor":"pointer"},
+        click:function(e){ document.location="Ejercicio12.html"; }
+        });
+        $(document).ready(function(){
+            $("#boton").click(function (){
+                $("BODY").append(imagen);
+            });
+        });
+    </script>
+</head>
+<body>
+<button id="boton">Incorporar objeto</button>
+</body>
+</html>

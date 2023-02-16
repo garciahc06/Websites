@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos en general</title>
+    <script type="text/javascript" src="jquery/jquery-1.11.2.min.js"></script>
+    <script language="JavaScript">
+        $(document).ready(function(){
+            $(document).on("mousemove", function(e){
+                $("#divCoordenadas").html("<strong> X: " + e.pageX + ", Y: " + e.pageY + "</strong>");
+            });
+            $(document).on("contextmenu", function (e){
+                e.preventDefault();
+                $("#divEstado").html("<strong>Click derecho</strong>");
+            });
+            $(document).on("click", function (e){
+                $("#divEstado").html("<strong>Click izquierdo </strong>");
+            });
+            $("#divScroll").on("scroll", function (e){
+                $("#divEstado").html("<strong>Scroll detectado</strong>");
+            });
+        });
+    </script>
+    <style type="text/css">
+        #divScroll {
+            margin: 20px 0;
+            padding: 10px;
+            height: 100px;
+            overflow-y: scroll;
+            border-radius: 5px;
+            box-shadow: 1px 1px 10px #000;
+            float: right;
+        }
+
+        #divCoordenadas {
+            border: solid 1px #ccc;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 1px 1px 10px #000;
+            float: left;
+        }
+
+        #divEstado {
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 1px 1px 10px #000;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div id="divCoordenadas"></div>
+<div id="divEstado"></div>
+<div id="divScroll">
+    <p>
+        Según un estudio realizado en 2014 por la empresa Investigación y Control S.A (Incosa) a petición de AENA,
+        la vida útil de la torre de control del Aeropuerto de Menorca finalizó en 2019 con una prórroga in extremis
+        que marca el año 2024 como límite para su recambio o renovación. El aeropuerto en una isla es un pilar
+        fundamental
+        para la comunicación y la economía, por lo que en 2010 se anunció en el Plan Rector de Aeropuertos la
+        construcción
+        de una nueva torre de control. Sin embargo, la obra nunca fue ejecutada y la torre -que es la más vieja de
+        España,
+        inaugurada en 1968- continúa funcionando.
+    </p>
+    <p>
+        Según un estudio realizado en 2014 por la empresa Investigación y Control S.A (Incosa) a petición de AENA,
+        la vida útil de la torre de control del Aeropuerto de Menorca finalizó en 2019 con una prórroga in extremis
+        que marca el año 2024 como límite para su recambio o renovación. El aeropuerto en una isla es un pilar
+        fundamental
+        para la comunicación y la economía, por lo que en 2010 se anunció en el Plan Rector de Aeropuertos la
+        construcción
+        de una nueva torre de control. Sin embargo, la obra nunca fue ejecutada y la torre -que es la más vieja de
+        España,
+        inaugurada en 1968- continúa funcionando.
+    </p>
+    <p>
+        Según un estudio realizado en 2014 por la empresa Investigación y Control S.A (Incosa) a petición de AENA,
+        la vida útil de la torre de control del Aeropuerto de Menorca finalizó en 2019 con una prórroga in extremis
+        que marca el año 2024 como límite para su recambio o renovación. El aeropuerto en una isla es un pilar
+        fundamental
+        para la comunicación y la economía, por lo que en 2010 se anunció en el Plan Rector de Aeropuertos la
+        construcción
+        de una nueva torre de control. Sin embargo, la obra nunca fue ejecutada y la torre -que es la más vieja de
+        España,
+        inaugurada en 1968- continúa funcionando.
+    </p>
+    <p>
+        En 2019, a poco de cumplirse el plazo final indicado por el informe, AENA y ENAIRE -los dos entes públicos
+        a cargo de la gestión de los aeropuertos de todo el país- anunciaron sucesivos proyectos para reemplazar
+        la actual torre de control por un moderno proyecto de “torre remota”. Se trata de un sistema de “visión
+        artificial
+        autónoma” que evitaría la construcción de un edificio de control tradicional y la sustituiría por un sofisticado
+        equipo de cámaras e inteligencia artificial, con el que monitorizar la entrada y salida de aviones de forma
+        virtual.
+    </p>
+    <p>
+        Desde Comisiones Obreras, sindicato que integra a controladores aéreos y personal aeroportuario en Menorca,
+        denuncian la falta de respuestas sobre cómo se llevará a cabo concretamente el proyecto:
+        “Falta un año para que se cumpla el plazo que indica el informe y AENA sigue sin dar respuestas.
+        No sabemos con qué personal vamos a cubrir las vacantes de la torre remota, porque incluso para la
+        vieja torre nos falta gente desde 2008”.
+    </p>
+</div>
+</body>
+</html>

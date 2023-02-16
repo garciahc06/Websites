@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Página de movimientos</title>
+    <style type="text/css">
+        #imagen1 {
+            position: absolute;
+            left: 150px;
+            top: 200px;
+        }
+
+        #imagen2 {
+            position: absolute;
+            left: 300px;
+            top: 50px;
+        }
+
+        #imagen3 {
+            position: absolute;
+            left: 450px;
+            top: 200px;
+        }
+
+        #imagen4 {
+            position: absolute;
+            left: 300px;
+            top: 350px;
+        }
+    </style>
+    <script language="JavaScript">
+        var EjeX = new Array(4);
+        var EjeY = new Array(4);
+        //Coordenadas vector X
+        EjeX[0] = [150, 165, 180, 195, 210, 225, 240, 255, 270, 285, 300];
+        EjeX[1] = [300, 315, 330, 345, 360, 375, 390, 405, 420, 435, 450];
+        EjeX[2] = [450, 435, 420, 405, 390, 375, 360, 345, 330, 315, 300];
+        EjeX[3] = [300, 285, 270, 255, 240, 225, 210, 195, 180, 165, 150];
+        //Coordenadas vector Y
+        EjeY[0] = [200, 185, 170, 155, 140, 125, 110, 95, 80, 65, 50];
+        EjeY[1] = [50, 65, 80, 95, 110, 125, 140, 155, 170, 185, 200];
+        EjeY[2] = [200, 215, 230, 245, 260, 275, 290, 305, 320, 335, 350];
+        EjeY[3] = [350, 335, 320, 305, 290, 275, 260, 245, 230, 215, 200];
+        //Variables de control
+        var posicion = 0;
+        posiciones = [0, 1, 2, 3];
+
+        /*
+        function rotar() {
+            var imagen = document.getElementById("imagen1");
+            imagen1.style.left = EjeX[0][posicion] + "px";
+            imagen1.style.top = EjeY[0][posicion] + "px";
+            imagen2.style.left = EjeX[1][posicion] + "px";
+            imagen2.style.top = EjeY[1][posicion] + "px";
+            imagen3.style.left = EjeX[2][posicion] + "px";
+            imagen3.style.top = EjeY[2][posicion] + "px";
+            imagen4.style.left = EjeX[3][posicion] + "px";
+            imagen4.style.top = EjeY[3][posicion] + "px";
+            posicion++;
+            if (posicion == 11) {
+                clearInterval(objeto);
+                posicion = 0;
+            }
+        }
+        */
+
+        function desplazar() { /*Misma funcion que la de rotar pero con un bucle for */
+            for (var i = 0; i < 4; i++) {
+                document.getElementById("imagen" + (i + 1)).style.left = EjeX[posiciones[i]][posicion] + "px";
+                document.getElementById("imagen" + (i + 1)).style.top = EjeY[posiciones[i]][posicion] + "px";
+            }
+            posicion++;
+            if (posicion == 11) {
+                clearInterval(objeto);
+                posicion = 0;
+                reserva = posiciones[0];
+                for (var i = 0; i < 3; i++) {
+                    posiciones[i] = posiciones[i + 1];
+                }
+                posiciones[posiciones.length - 1] = reserva;
+            }
+        }
+    </script>
+</head>
+<body onkeypress="pasar()">
+<img id="imagen1" src="../Imagenes/will.jpg" width="150" height="150">
+<img id="imagen2" src="../Imagenes/thor.jpg" width="150" height="150">
+<img id="imagen3" src="../Imagenes/TheRock.jpg" width="150" height="150">·
+<img id="imagen4" src="../Imagenes/RobertJr.jpg" width="150" height="150">
+<!--<input type="button" value="Desplazar" onclick="objeto=setInterval('rotar()',700)">-->
+<input type="button" value="Desplazar" onclick="objeto=setInterval('desplazar()',700)">
+</body>
+</html>

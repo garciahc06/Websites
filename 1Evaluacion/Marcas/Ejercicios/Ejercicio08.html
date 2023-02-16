@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Trabajando con estilos II</title>
+    <style type="text/css">
+        h1 {
+            margin-left: 0.25in;
+            color: navy;
+            font-size: 24pt;
+        }
+
+        h2 {
+            margin-left: 0.5in;
+            color: red;
+            font-size: 18pt;
+        }
+
+        p {
+            margin-left: 0.75in;
+            color: blue;
+            font-size: 12pt;
+            margin-right: 5.5in;
+        }
+    </style>
+    <script language="JavaScript">
+        function ampliar() {
+            //si clicamos en el encabezado, aparece el parrafo 2, y si volvemos a clicar, desaparece.
+            if(parrafo2.style.display === "none") {
+                parrafo2.style.display = "";  // Mostrar el párrafo 2
+            } else {
+                parrafo2.style.display = "none";  // Ocultar el párrafo 2
+            }
+        }
+        function ampliar2() {
+            //si clicamos en el parrafo 2 aparece el parrafo 3, y si cliceamos otra vez, desaparece.
+            if(parrafo3.style.display === "none") {
+                parrafo3.style.display = "";  // Mostrar el párrafo 3
+            } else {
+                parrafo3.style.display = "none";  // Ocultar el párrafo 3
+            }
+        }
+    </script>
+</head>
+<body>
+<h1 onclick="ampliar()">
+    Reemplazando HTML dinámicamente
+</h1>
+<h2 id="parrafo2" style="display:none" onclick="ampliar2()">
+    Esta es la segunda cabecera
+</h2>
+<p id="parrafo3" style="display:none">
+    Esto es lo que va a ver si se hace click en el sobre ambas cabeceras. Es similar en
+    estilo al software de presentacion, en que el contenido se muestra segun las acciones del usuario
+</p>
+</body>
+</html>

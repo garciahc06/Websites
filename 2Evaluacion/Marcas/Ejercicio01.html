@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Metodo SLIDE</title>
+  <style type="text/css">
+    body{
+      background-color: #03f6bf;
+    }
+  </style>
+  <script type="text/javascript" src="jquery/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#deslizar").click(function(/*event*/){
+        $("#rectangulo").slideUp(4000);
+      });
+      $("#deslizar2").click(function(/*event*/){
+        $("#rectangulo").slideDown(1000);
+      });
+      $("#ocultar").click(function(/*event*/){
+        $("#rectangulo").hide(3000);
+      });
+      $("#aparecer").click(function(/*event*/){
+        $("#rectangulo").show(3000);
+      });
+        $("#persiana").click(function(/*event*/){
+            $("#rectangulo").slideUp(3000, function(){
+                setTimeout(function(){
+                    $("#rectangulo").slideDown(3000);
+                }, 1000);
+            });
+        });
+        $("#toogle").click(function(/*event*/){
+            $("#rectangulo").slideToggle(3000);
+        });
+
+    });
+  </script>
+</head>
+<body>
+<input  type="button" id="deslizar" value="Ocultar en 4000 milisegundos">
+<input type="button" id="deslizar2" value="Mostrar en 1000 milisegundos">
+<input type="button" id="ocultar" value="Ocultar">
+<input type="button" id="aparecer" value="Aparecer">
+<input type="button" id="persiana" value="subir y bajar">
+<input type="button" id="toogle" value="toogle">
+
+<div id="rectangulo" style="padding: 500px 30px 300px; background-color: #ff00fb"></div>
+
+</body>
+</html>

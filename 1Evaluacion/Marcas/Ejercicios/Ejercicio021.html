@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reloj digital</title>
+    <script language="JavaScript">
+        function reloj() {
+            var fecha = new Date();
+            var horaStr = "";
+            horaStr = (((fecha.getHours() < 10) ? "0" : "") + fecha.getHours());
+            horaStr += (((fecha.getMinutes() < 10) ? ":0" : ":") + fecha.getMinutes());
+            horaStr += (((fecha.getSeconds() < 10) ? ":0" : ":") + fecha.getSeconds());
+            cadena.value = horaStr;
+        }
+    </script>
+</head>
+<body onload="setInterval('reloj()', 1000)">
+<center>
+    <h1>Reloj digital</h1>
+    <input id="cadena" size="8">
+</center>
+</body>
+</html>

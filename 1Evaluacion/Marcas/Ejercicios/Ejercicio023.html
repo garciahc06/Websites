@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego del arco</title>
+    <style type="text/css">
+        img {
+            position: absolute;
+        }
+    </style>
+    <script language="JavaScript">
+        function robinhood() {
+            robin.style.top = event.y - 75 + "px";
+        }
+
+        function movimientos() {
+            flecha.style.left = parseInt(flecha.style.left) + 10 + "px";
+            if (parseInt(flecha.style.left) > 1920) {
+                flecha.style.display = "none";
+            }
+            globo.style.top = parseInt(globo.style.top) - 5 + "px";
+            if (parseInt(globo.style.top) < -200)
+                globo.style.top = 700 + "px";
+            if (!(((parseInt(flecha.width) + parseInt(flecha.style.left)) < parseInt(globo.style.left))
+                || (parseInt(flecha.style.left) > (parseInt(globo.style.left) + parseInt(globo.width)))
+                || (parseInt(flecha.style.top) > (parseInt(globo.style.top) + parseInt(globo.height)))
+                || ((parseInt(flecha.height) + parseInt(flecha.style.top)) < parseInt(globo.style.top)))) {
+                flecha.style.display = "none";
+                globo.style.display = "none";
+                setTimeout(function () {
+                    hanabi.style.visibility = "visible";
+                }, 500);
+            }
+        }
+
+        function lanzar() {
+            flecha.style.left = 80 + "px";
+            flecha.style.top = event.y - 50 + "px";
+        }
+
+    </script>
+</head>
+<body onmousemove="robinhood()" onload="setInterval('movimientos()',50)" onclick="lanzar()"
+      onload="setInterval('globo()',50)">
+<img id="robin" src="../imagenes/robinhood.jpg" height="150" style="left: 5px">
+<img id="flecha" src="../imagenes/Flecha.png" height="50" style="left: 110px">
+<img id="globo" src="../imagenes/globo.png" style="left: 1250px; top:700px" height="150">
+<img id="hanabi" src="../imagenes/hanabi.gif" style="visibility: hidden; left: 40%; top: 40%" height="300">
+</body>
+</html>

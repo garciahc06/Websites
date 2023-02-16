@@ -1,0 +1,52 @@
+table {
+    display: flex;
+    justify-content: center;
+}
+ul.tabs {
+    float: left;
+    padding: 0;
+    list-style: none;
+    height: 32px;
+    width: 600px;
+    margin: -7px 0 0;
+}
+
+ul.tabs li {
+    float: left;
+    padding: 0;
+    height: 31px;
+    line-height: 31px;
+    border: 1px solid #333333;
+    margin: 0 0 -1px;
+    background: #333333;
+    overflow: hidden;
+    position: relative;
+    border-radius: 7px 7px 0px 0px;
+}
+
+ul.tabs li a {
+    color: #FFF;
+    text-decoration: none;
+    padding: 0 20px;
+}
+
+ul.tabs li a:hover {
+    background: #666666;
+    color: #333333;
+}
+.contenedor{
+    float: left;
+    clear: both;
+    width: 600px;
+    height: 500px;
+    display: block;
+    border: 1px solid #333333;
+    border-radius: 0 7px 7px 7px;
+    background: linear-gradient(#FFFFFF, #FF0000);
+}
+li.activa a {
+    color: #333333;
+    font-weight: bold;
+    background: #cccccc;
+    border: 10px solid #cccccc;
+}

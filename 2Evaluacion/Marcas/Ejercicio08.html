@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animación con opacidad</title>
+    <script type="text/javascript" src="jquery/jquery-1.11.2.min.js"></script>
+    <script language="JavaScript">
+        $(document).ready(function(){
+            $("button").click(function (event){
+                $("div").animate({height:'300px', opacity:'0.4'}, 1000);
+                $("div").animate({width:'300px', opacity:'0.8'}, 1000);
+                $("div").animate({height:'100px', opacity:'0.4'}, 1000);
+                $("div").animate({width:'10px', opacity:'1'}, 1000);
+            });
+        });
+    </script>
+    <style type="text/css">
+        div {
+            background: #98bf21;
+            height: 100px;
+            width: 10px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button id="iniciar">Iniciar animación</button>
+<div></div>
+</body>
+</html>

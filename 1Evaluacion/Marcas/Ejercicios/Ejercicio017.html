@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Llamarada</title>
+    <style type="text/css">
+        img {
+            position: absolute;
+        }
+    </style>
+    <script language="JavaScript">
+        var objeto = null;
+
+        function cargar() {
+            if (event.srcElement.className === "movil")
+                objeto = event.srcElement;
+        }
+
+        function descargar() { //Pasear = convertir un tipo de dato a otro si se puede
+            //Si la foto de la cerilla intersecta con la papelera, la papelera se oculta y sale la imagen llamarada.
+            if (!(((parseInt(objeto.width) + parseInt(objeto.style.left)) < parseInt(papelera.style.left))
+                || (parseInt(objeto.style.left)) > (parseInt(papelera.style.left) + parseInt(papelera.width))
+                || (parseInt(objeto.style.top)) > (parseInt(papelera.style.top) + parseInt(papelera.height))
+                || ((parseInt(objeto.height) + parseInt(objeto.style.top)) < parseInt(papelera.style.top)))) {
+                objeto.style.display = "none";
+                //cambiamos la propiedad src de papelera por la imagen de llamarada
+                if (objeto.id === "cerilla") {
+                    papelera.src = "../imagenes/llamarada.png";
+                }
+            }
+            objeto = null;
+        }
+
+        function mover() {
+            if (objeto != null) {
+                objeto.style.left = event.x - 75 + "px";
+                objeto.style.top = event.y - 75 + "px";
+            }
+        }
+    </script>
+</head>
+<body onmousedown="cargar()" onmouseup="descargar()" onmousemove="mover(); return false">
+<img class="movil" src="../imagenes/RobertJr.jpg" width="150" height="150" style="left: 100px; top: 50px">
+<img class="movil" src="../imagenes/TheRock.jpg" width="150" height="150" style="left: 300px; top: 50px">
+<img class="movil" src="../imagenes/thor.jpg" width="150" height="150" style="left: 500px; top: 50px">
+<img class="movil" src="../imagenes/will.jpg" width="150" height="150" style="left: 700px; top: 50px">
+<img class="movil" id="cerilla" src="../imagenes/cerilla.png" height="150" style="left: 1000px; top: 50px">
+<img id="papelera" src="../imagenes/papelera.png" height=150" style="left: 500px; top:400px">
+</body>
+</html>

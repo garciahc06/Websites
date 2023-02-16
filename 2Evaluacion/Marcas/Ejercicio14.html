@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tratar con el evento keyDown</title>
+    <script type="text/javascript" src="jquery/jquery-1.11.2.min.js"></script>
+    <script language="JavaScript">
+        $(document).ready(function (){
+          $("#escribe").keydown(function (e){
+            $("#escribe").val("")
+            $("#parrafo").text("El codigo de la tecla " + String.fromCharCode(e.which) + " es " + e.which);
+          });
+          $("#escribe").keyup(function (e){
+            $("#parrafo").text("Acabas de soltar la tecla")
+          });
+        })
+    </script>
+</head>
+<body>
+<p>
+  <textarea id="escribe"></textarea>
+</p>
+<p id="parrafo">
+  Mantén pulsada una tecla y después suéltala
+</p>
+
+</body>
+</html>

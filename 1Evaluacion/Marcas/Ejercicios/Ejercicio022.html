@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora</title>
+    <style type="text/css">
+        table { /* tabla */
+            border: 3px solid black;
+            border-collapse: collapse;
+            width: 300px;
+            margin-top: 15px;
+        }
+        h1 {
+            text-align: center;
+            font-weight: bold;
+            font-family: Arial;
+        }
+    </style>
+    <script language="JavaScript">
+        function calcular(){
+            var num1 = document.getElementById("num1").value;
+            var num2 = document.getElementById("num2").value;
+            var operacion = document.getElementById("operacion").value;
+            var resultado = document.getElementById("resultado");
+            if(operacion === "suma"){
+                resultado.value = parseInt(num1) + parseInt(num2);
+            }else if(operacion === "resta"){
+                resultado.value = parseInt(num1) - parseInt(num2);
+            }else if(operacion === "multiplicacion"){
+                resultado.value = parseInt(num1) * parseInt(num2);
+            }else if(operacion === "division"){
+                resultado.value = parseInt(num1) / parseInt(num2);
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>Calculadora</h1>
+<table id="tabla" align="center" cellpadding="10px" cellspacing="0px">
+    <tr>
+        <td>
+            <input type="text" id="num1" size="10">
+        </td>
+        <td>
+            <select id="operacion">
+                <option value="suma">+</option>
+                <option value="resta">-</option>
+                <option value="multiplicacion">*</option>
+                <option value="division">/</option>
+            </select>
+        </td>
+        <td>
+            <input type="text" id="num2" size="10">
+        </td>
+        <td>
+            <input type="button" value="=" onclick="calcular()">
+        </td>
+        <td>
+            <input type="text" id="resultado" size="10" disabled>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

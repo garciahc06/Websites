@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cambiar de clase</title>
+  <style type="text/css">
+    .bloque1 {
+      position: absolute;
+      width: 315px;
+      top: 50px;
+      left: 20px;
+      background-color: lemonchiffon;
+    }
+    .bloque2 {
+      position: absolute;
+      width: 300px;
+      top: 50px;
+      left: 400px;
+      background-color: lightblue;
+    }
+  </style>
+  <script language="JavaScript">
+    function cambiar() { // Al clicar en el botón, se cambia la clase
+      if (b1.className == "bloque1") {
+        b1.className = "bloque2";
+        b2.className = "bloque1";
+      } else {
+        b1.className = "bloque1";
+        b2.className = "bloque2";
+      }
+    }
+  </script>
+</head>
+<body>
+<div id="b1" class="bloque1">
+  <img src="../Imagenes/ancheloti.jpg" height="200" width="315">
+  <p align="justify" style="margin: 20px">
+    El técnico del Real Madrid, Carlo Ancelotti, compareció tras el triunfo del equipo blanco ante el Shakhtar
+    (2-1),
+    con el que el Madrid suma nueve puntos de nueve y deja la clasificación
+    para octavos de final de la Champions prácticamente encarrilada.
+    Primero pasó por los micrófonos de Movistar Liga de Campeones.
+  </p>
+</div>
+<div id="b2" class="bloque2">
+  <img src="../Imagenes/green.jpg" height="200" width="300">
+  <p align="justify" style="margin: 20px">
+    Lío en el campeón de la NBA a menos de dos semanas del inicio de la regular season 2022-23: Draymond Green se
+    expone
+    a posible suspensión
+    de Golden State Warriors por agredir a su compañero Jordan Poole. La franquicia está analizando unos hechos que
+    tuvieron lugar en el entrenamiento de ayer miércoles,
+    cuando “Green pegó un puñetazo a Poole”, según ESPN, después de un enganchón en el que ambos cruzaron insultos y
+    acusaciones.
+    Poole no tuvo ningún problema físico serio como consecuencia del altercado y pudo terminar el entrenamiento,
+    aunque desde el equipo se decidió acortarlo y reunirse en el vestuario para templar los ánimos.
+  </p>
+</div>
+<input type="button" value="Cambiar de clase" onclick="cambiar()">
+</body>
+</html>

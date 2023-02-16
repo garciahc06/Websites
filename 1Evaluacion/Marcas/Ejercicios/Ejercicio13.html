@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Elementos de un objeto "document"</title>
+  <!-- objeto document es donde se escribe. Entra dentro del objeto window por ejemplo, etc -->
+  <style type="text/css">
+
+  </style>
+  <script language="JavaScript">
+    function mostrar() {
+      for (i = 0; i < document.all.length; i++)
+        alert(document.all[i].tagName);
+      for (i = 0; i < document.images.length; i++)
+        alert(document.images[i].src);
+    }
+  </script>
+</head>
+<body onload="mostrar()">
+<img src="../Imagenes/cruz.jpg" height="100">
+<img src="../Imagenes/circulo.jpg" height="100">
+</body>
+</html>

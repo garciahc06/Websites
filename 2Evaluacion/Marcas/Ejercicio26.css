@@ -23,6 +23,7 @@ li {
     position: absolute;
     top: 30px;
     left: 0.25px;
+    display: none;
     box-shadow: 0px 5px 5px #000;
     border-radius: 0px 0px 10px 10px;
     animation-duration: 0.8s;
@@ -74,5 +75,28 @@ li {
     border-radius: 10px 10px 0px 0px;
     border: 1px outset #D0DBE6;
     test-shadown: 1px 1px 1px #375F85;
+}
 
+#menuHorizontal li:hover ul {
+    display: block;
+    animation-name: submenu;
+}
+
+@keyframes submenu {
+    0% {
+        opacity: 0;
+        left: -150px;
+    }
+    50% {
+        transform: skew(10deg);
+        box-shadow: -10px 4px 8px 5px #000;
+    }
+    100% {
+        opacity: 1;
+        left: 1px;
+    }
+}
+
+#menuHorizontal>li {
+    transition: all 0.6s ease;
 }

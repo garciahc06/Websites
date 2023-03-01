@@ -2,48 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Menu con listas</title>
+    <title>Galeria de imagenes</title>
     <script type="text/javascript" src="jquery/jquery-1.11.2.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="Ejercicio21.css">
     <script>
-        $(document).ready(function () {
-            $("ul.tabs li").click(function (){
-                $("ul.tabs li").removeClass("activa");
-                $(this).addClass("activa");
-                $(".contenedor div").hide();
-                var parrafoAActivar = $(this).find("a").attr("href");
-                $(parrafoAActivar).show();
+        $(document).ready(function (){
+            $("#next").click(function (){
+                $("#galeria li:first").appendTo("#galeria");
+            });
+            $("#back").click(function () {
+                $("#galeria li:last").prependTo("#galeria");
             });
         });
-
     </script>
+    <style>
+        img {
+            width: 600px;
+            height: 400px;
+        }
+        li {
+            float: left;
+            list-style: none;
+        }
+        ul{
+            width: 600px;
+            height: 400px;
+            overflow: hidden;
+        }
+        ul, li {
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
 </head>
 <body>
-<table>
-    <tr>
-        <td>
-            <ul class="tabs">
-                <li><a href="#tab1">Menu 1</a></li>
-                <li><a href="#tab2">Menu 2</a></li>
-                <li><a href="#tab3">Menu 3</a></li>
-                <li><a href="#tab4">Menu 4</a></li>
-            </ul>
-            <div class="contenedor">
-                <div id="tab1">
-                    <p>Contenido de la pestaña 1</p>
-                </div>
-                <div id="tab2">
-                    <p>Contenido de la pestaña 2</p>
-                </div>
-                <div id="tab3">
-                    <p>Contenido de la pestaña 3</p>
-                </div>
-                <div id="tab4">
-                    <p>Contenido de la pestaña 4</p>
-                </div>
-            </div>
-        </td>
-    </tr>
-</table>
+<ul id="galeria">
+    <li><img src="Imagenes/akali.png"></li>
+    <li><img src="Imagenes/akali2.png"></li>
+    <li><img src="Imagenes/minita.jpeg"></li>
+</ul>
+<button id="back">Anterior</button>
+<button id="next">Siguiente</button>
+
 </body>
 </html>

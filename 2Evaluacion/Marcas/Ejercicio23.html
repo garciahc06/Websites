@@ -2,55 +2,93 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Galeria de imagenes 2</title>
+    <title>Formulario - Validaciones</title>
     <script type="text/javascript" src="jquery/jquery-1.11.2.min.js"></script>
+    <link rel="stylesheet" href="Ejercicio23.css">
+    <!-- Marcas de script -->
     <script>
-        $(document).ready(function (event){
-            $("#galeria div:gt(0)").hide();
-            setInterval(function (){
-                $("#galeria div:first-child").fadeOut()
-                    .next("div").fadeIn(1000).end().appendTo("#galeria")
-            }, 4000);
-        })
+        var validosNombre = "^[a-z A-Z]{4,30}$"
+        var validosEmail = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$";
+        $(function () {
+            checkForm("#contacto");
+        });
+
+        function checkForm(idForm) {
+            $(idForm + " *").on("change keyup", function () {     //  $("#contaco*")
+                //Validamos campo nombre
+                if (checkInput("#nombre", validosNombre))
+                    $(idForm + " button.submit").removeAttr("disabled");
+                else
+                    $(idForm + " button.submit").attr("disabled", "disabled");
+
+                //Validamos campo Apellido
+                if (checkInput("#apellidos", validosNombre))
+                    $(idForm + " button.submit").removeAttr("disabled");
+                else
+                    $(idForm + " button.submit").attr("disabled", "disabled");
+
+                // Validad campo EMAIL
+                if (checkInput("#email", validosEmail))
+                    $(idForm + " button.submit").removeAttr("disabled");
+                else
+                    $(idForm + " button.submit").attr("disabled", "disabled");
+
+                // Validamos campo legal
+                if ($("#legal").is(":checked"))
+                    $(idForm + " button.submit").removeAttr("disabled");
+                else
+                    $(idForm + " button.submit").attr("disabled", "disabled");
+
+                // Validamos campo boletin, da igual la respuesta que sea, solo tiene que estar marcado
+                if ($("input[name='boletin']").is(":checked"))
+                    $(idForm + " button.submit").removeAttr("disabled");
+                else
+                    $(idForm + " button.submit").attr("disabled", "disabled");
+            });
+        }
+
+        function checkInput(idInput, validacion) {
+            return $(idInput).val().match(validacion);
+        }
+
     </script>
-    <style>
-        img {
-            width: 600px;
-            height: 400px;
-        }
 
-        #galeria {
-            width: 600px;
-            height: 400px;
-            overflow: hidden;
-            border: 10px solid #333333;
-            margin: 0 auto;
-            padding: 0;
-            border-radius: 40px;
-        }
-
-        #galeria p {
-            position: absolute;
-            left: 100px;
-            bottom: 30px;
-            color: #eee;
-            background-color: #990000;
-            text-align: center;
-            width: 400px;
-            height: 24px;
-            padding: 5px;
-            display: block;
-        }
-    </style>
 </head>
 <body>
-<div id="galeria">
-    <div><img src="Imagenes/akali.png">
-        <p>Imagen 1</p></div>
-    <div><img src="Imagenes/akali2.png">
-        <p>Imagen 2</p></div>
-    <div><img src="Imagenes/minita.jpeg">
-        <p>Imagen 3</p></div>
-</div>
+<form name="contacto" id="contacto" method="post" action="www.adadf">
+    <label for="nombre">Nombre: </label>
+    <input name="nombre" id="nombre" size="30">
+
+    <label for="apellidos">Apellidos: </label>
+    <input name="apellidos" id="apellidos" size="30">
+
+    <label for="email">E-mail: </label>
+    <input name="email" id="email" size="50">
+
+    <label for="edad">Edad: </label>
+    <select name="edad" id="edad">
+        <option>--------</option>
+        <option value="18-25">18 a 25 años</option>
+        <option value="26-45">26 a 45 años</option>
+        <option value="46-65">46 a 65 años</option>
+        <option value="+65">Más de 65 años</option>
+    </select>
+
+    <label for="comentario">Comentario: </label>
+    <textarea name="comentario" id="comentario" cols="40" rows="4"></textarea>
+
+    <label for="legal"><input type="checkbox" name="legal" id="legal">Estoy de acuerdo con los terminos y condiciones</label>
+
+    <br>
+
+    <label>¿Quieres recibir nuestro boletín?
+        <input type="radio" name="boletin" value="si">Si
+        <input type="radio" name="boletin" value="no">No
+    </label>
+    <br><br><br>
+    <button class="submit" disabled>Enviar</button>
+
+</form>
+
 </body>
 </html>

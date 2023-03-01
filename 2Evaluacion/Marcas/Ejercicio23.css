@@ -1,0 +1,23 @@
+body {
+    background: #1e1c1c;
+    display: flex;
+    justify-content: center;
+}
+
+form { /* El formulario está por delante de la pagina principal */
+    margin: 50px 1em 1em;
+    
+}
+
+label {
+    display: block;
+    margin: .5em 0;
+}
+
+label, button {
+    color: #fff;
+}
+button {
+    background-color: #333232;
+    border-radius: 120px;
+}

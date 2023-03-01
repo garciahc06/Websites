@@ -9,6 +9,7 @@
             $("button").click(function (){
                 $("div").animate({left:'300px'}, "slow");
                 $("div").animate({fontSize:'3em'}, "slow");
+
             });
         });
     </script>
@@ -18,6 +19,22 @@
             height: 100px;
             width: 10px;
             position: absolute;
+        }
+        button {
+            background: #98bf21;
+            color: white;
+            border: 1px solid #98bf21;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 1.5em;
+        }
+        button:hover {
+            background: #7A991A;
+            cursor: pointer;
+        }
+        button:active {
+            background: #A7C942;
+            border: 1px solid #A7C942;
         }
     </style>
 </head>

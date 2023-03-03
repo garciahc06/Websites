@@ -5,26 +5,26 @@
     <title>Jugando con la opacidad</title>
     <script type="text/javascript" src="jquery/jquery-1.11.2.min.js"></script>
     <script language="JavaScript">
-        $(document).ready(function(){
-            $("#ocultar").click(function (event){
+        $(document).ready(function() {
+            $("#ocultar").click(function (event) {
                 $("#rectangulo").fadeOut(1000);
             })
-            $("#mostrar").click(function (event){
-                $("#rectangulo").fadeIn(1000, "swing", function(){
+            $("#mostrar").click(function (event) {
+                $("#rectangulo").fadeIn(1000, "swing", function () {
                     alert("Se acabó");
                 });
             });
-            $("#mostrar2").click(function (event){
-                $("#rectangulo").fadeTo(1000, 0.5, function(){
+            $("#mostrar2").click(function (event) {
+                $("#rectangulo").fadeTo(1000, 0.5, function () {
                     alert("Se acabó");
                 });
             });
-            $("#toggle").click(function (event){
-                $("#rectangulo").fadeToggle(2000, function(){
+            $("#toggle").click(function (event) {
+                $("#rectangulo").fadeToggle(2000, function () {
                     alert("Se acabó");
                 });
             });
-        })
+        });
     </script>
     <style type="text/css">
         #rectangulo {

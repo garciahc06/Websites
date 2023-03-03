@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+    <!-- Hacer que una imagen aparezca y desaparezca cada 10 segundos.  Para hacer que desaparezca
+    debéis utilizar una de las funciones de JQUERY y para que aparezca, la contraria. -->
+    <script type="text/javascript" src="jquery/jquery-1.11.2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#imagen").show(1000);
+            setInterval(function () {
+                $("#imagen").toggle(1000);
+            }, 10000);
+
+        });
+    </script>
+    <style>
+        #imagen {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+<img id="imagen" src="Imagenes/mango.jpg">
+</body>
+</html>

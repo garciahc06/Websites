@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Marcas HTML 5 para un formulario</title>
+    <script>
+        function mostrarEdad(valor) {
+            verEdad.innerHTML = valor;
+        }
+    </script>
+</head>
+<body>
+<form action=" ">
+   <h2>Formulario HTML5</h2>
+    <p>
+        Nombre: <input type="text" name="nombre" autofocus required>
+    </p>
+    <p>
+        E-mail: <input type="email" name="email" placeholder="Introduzca su email...">
+    </p>
+    <p>
+        Edad: <input type="range" min="18" max="70" value="35" name="edad" onchange="mostrarEdad(this.value)">
+        <span id="verEdad">35</span>
+    </p>
+    <p>
+        Color favorito: <input type="color" name="color">
+    </p>
+    <p>
+        Web: <input type="url" name="web" autocomplete="on">
+    </p>
+    <p>
+        Nº par de 0 a 10: <input type="number" name="numero" min="0" max="10" step="2">
+    </p>
+    <p>
+        Destinatario: <input type="email" name="destinatario" list="listaDestinatarios" reaquired>
+        <datalist id="listaDestinatarios">
+            <option value="admin@seasianos.edu">Adiminstrador</option>
+            <option value="agustin.sole@salesianos.edu">Agustin</option>
+            <option value="gorka.sanz@salesianos.edu">Gorka</option>
+        </datalist>
+    </p>
+
+
+    <p>
+        <input type="submit">
+    </p>
+
+</form>
+
+</body>
+</html>

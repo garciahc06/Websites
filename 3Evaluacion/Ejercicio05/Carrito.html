@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="Estilos.css">
+    <script type="application/javascript" src="script.js"></script>
+</head>
+<body>
+<div id="principal">
+    <h1>TIENDA ONLINE</h1>
+    <div id="productos">
+        <table>
+            <tr>
+                <th>IMAGEN</th>
+                DESCRIPCIÓN
+                <th>COMPRAR</th>
+            </tr>
+            <tr>
+                <td><img src="Imagenes/dell.jpeg" alt="dell"></td>
+                <td><span id="d1">Ordenador Dell</span></td>
+                <td><input type="button" value="Comprar" onclick="almacenar('dell')"></td>
+            </tr>
+            <tr>
+                <td><img src="Imagenes/acer.jpg" alt="acer"></td>
+                <td><span id="d2">Ordenador Acer</span></td>
+                <td><input type="button" value="Comprar" onclick="almacenar('acer')"></td>
+            </tr>
+            <tr>
+                <td><img src="Imagenes/apple.jpeg" alt="hp"></td>
+                <td><span id="d3">Ordenador Apple</span></td>
+                <td><input type="button" value="Comprar" onclick="almacenar('apple')"></td>
+            </tr>
+
+        </table>
+    </div>
+    <div id="carrito">
+        <h4>Este es el estado del carrito</h4>
+        <div id="cesta"></div>
+        <div id="total"></div>
+    </div>
+    <div id="pie"></div>
+
+
+</div>
+</body>
+</html>

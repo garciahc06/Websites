@@ -63,5 +63,4 @@ function insertarEnlace() {
 
 function publicar() {
     var contenido = document.getElementById("editor").innerHTML;
-    document.getElementById("publicacion").innerHTML = contenido;
 }

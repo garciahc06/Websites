@@ -14,7 +14,7 @@
         });
 
         function checkForm(idForm) {
-            $(idForm + " *").on("change keyup", function () {     //  $("#contaco*")
+            $(idForm + " *").on("change keyup", function () {
                 //Validamos campo nombre
                 if (checkInput("#nombre", validosNombre))
                     $(idForm + " button.submit").removeAttr("disabled");

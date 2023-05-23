@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insertar datos</title>
+    <style> /* Damos unos pocos estilos para que la tabla se vea mejor */
+    table {
+        border-collapse: separate;
+        border-spacing: 10px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+    </style>
+    <script type="application/javascript">
+        /*
+        * Autor: Andrés García
+        Aquí se encuentra el javaScript usado en este ejercicio.
+        Hay 3 funciones:
+            * cargar: Crea la base de datos y la rellena con los datos de las provincias.
+            * mostrarDatosInsertados: Muestra los datos de la tabla Provincias en el div "tabla".
+            * mostrarDatos: Muestra los datos de la tabla Provincias en el sessionStorage en el div "resultado".
+            * ordenarYAlmacenar: Ordena los datos de la tabla Provincias y los almacena en el sessionStorage.
+        */
+        var db = openDatabase('Database_Examen', '1.0', 'Comentario sobre DB', 2 * 1024 * 1024);
+        window.onload = cargar;
+
+        function cargar() {
+            db.transaction(function (tx) {
+                tx.executeSql('CREATE TABLE IF NOT EXISTS Provincias (nombre, numHabitantes, extension, numPoblaciones)');
+
+                var registros = [
+                    {nombre: 'Zaragoza', numHabitantes: 1000000, extension: 2500, numPoblaciones: 100},
+                    {nombre: 'Alicabte', numHabitantes: 800000, extension: 1800, numPoblaciones: 8},
+                    {nombre: 'Zamora', numHabitantes: 120000, extension: 600, numPoblaciones: 12},
+                    {nombre: 'Madrid', numHabitantes: 3000000, extension: 2000, numPoblaciones: 9},
+                    {nombre: 'Barcelona', numHabitantes: 2000000, extension: 800, numPoblaciones: 80},
+                    {nombre: 'Valencia', numHabitantes: 900000, extension: 3000, numPoblaciones: 92}
+
+                ];
+                //Borramos los datos existentes de la tabla de otras ejecuciones, para no tener datos duplicados
+                tx.executeSql('DELETE FROM Provincias');
+
+                for (var i = 0; i < registros.length; i++) {
+                    var registro = registros[i];
+                    tx.executeSql('INSERT OR IGNORE INTO Provincias (nombre, numHabitantes, extension, numPoblaciones) VALUES (?, ?, ?, ?)', [registro.nombre, registro.numHabitantes, registro.extension, registro.numPoblaciones]);
+                }
+                //Estos datos se reflejan en el div "tabla" al cargar la página
+                db.transaction(function (tx) {
+                    tx.executeSql('SELECT * FROM Provincias ORDER BY nombre ASC', [], function (tx, resultados) {
+                        var len = resultados.rows.length;
+                        var listado = document.getElementById('tabla');
+
+                        for (var i = 0; i < len; i++) {
+                            var registro = resultados.rows.item(i);
+                            var item = document.createElement('li');
+                            item.textContent = "Nombre: " + registro.nombre + ", Num. Habitantes: " + registro.numHabitantes + ", Extensión: " + registro.extension + ", Num. Poblaciones: " + registro.numPoblaciones;
+                            listado.appendChild(item);
+                        }
+                    });
+                });
+                mostrarDatosInsertados();
+            });
+        }
+
+        function mostrarDatosInsertados() {
+            db.transaction(function (tx) {
+                tx.executeSql('SELECT * FROM Provincias ORDER BY nombre ASC', [], function (tx, resultados) {
+                    var len = resultados.rows.length;
+                    var divTabla = document.getElementById('tabla');
+                    var tabla = document.createElement('table');
+                    var thead = document.createElement('thead');
+                    var tbody = document.createElement('tbody');
+
+                    // Limpiamos el contenido anterior
+                    divTabla.innerHTML = '';
+
+                    // Cabecera de la tabla
+                    var headerRow = document.createElement('tr');
+                    var headers = ['Nombre', 'Num. Habitantes', 'Extensión', 'Num. Poblaciones'];
+
+                    for (var j = 0; j < headers.length; j++) {
+                        var headerCell = document.createElement('th');
+                        headerCell.textContent = headers[j];
+                        headerRow.appendChild(headerCell);
+                    }
+                    thead.appendChild(headerRow);
+                    tabla.appendChild(thead);
+
+                    // Contenido de la tabla
+                    for (var i = 0; i < len; i++) {
+                        var registro = resultados.rows.item(i);
+                        var row = document.createElement('tr');
+
+                        for (var prop in registro) {
+                            var cell = document.createElement('td');
+                            cell.textContent = registro[prop];
+                            row.appendChild(cell);
+                        }
+
+                        tbody.appendChild(row);
+                    }
+                    tabla.appendChild(tbody);
+                    divTabla.appendChild(tabla);
+                });
+            });
+        }
+
+        // Función para mostrar los datos del sessionStorage
+        function mostrarDatos() {
+            //Mostramos en el div "tabla" los datos ordenados ascendentemente por nombre
+
+            var sessionStorageData = JSON.parse(sessionStorage.getItem('provincias'));
+            var resultado = document.getElementById('resultado');
+
+            // Limpiamos el contenido anterior
+            resultado.innerHTML = '';
+
+            if (sessionStorageData) {
+                var table = document.createElement('table');
+                var thead = document.createElement('thead');
+                var tbody = document.createElement('tbody');
+
+                // Cabecera de la tabla
+                var headerRow = document.createElement('tr');
+                var headers = ['Nombre', 'Num. Habitantes', 'Extensión', 'Num. Poblaciones'];
+
+                for (var j = 0; j < headers.length; j++) {
+                    var headerCell = document.createElement('th');
+                    headerCell.textContent = headers[j];
+                    headerRow.appendChild(headerCell);
+                }
+                thead.appendChild(headerRow);
+                table.appendChild(thead);
+
+                // Contenido de la tabla
+                for (var i = 0; i < sessionStorageData.length; i++) {
+                    var provincia = sessionStorageData[i];
+                    var row = document.createElement('tr');
+
+                    for (var prop in provincia) {
+                        var cell = document.createElement('td');
+                        cell.textContent = provincia[prop];
+                        row.appendChild(cell);
+                    }
+
+                    tbody.appendChild(row);
+                }
+
+                table.appendChild(tbody);
+                resultado.appendChild(table);
+            }
+        }
+
+        // Función para ordenar los datos y almacenarlos en sessionStorage
+        function ordenarYAlmacenar(opcion) {
+            db.transaction(function (tx) {
+                var ordenColumna = '';
+                switch (opcion) {
+                    case 2: // Ordenar por numHabitantes (descendente)
+                        ordenColumna = 'numHabitantes DESC';
+                        break;
+                    case 3: // Ordenar por extension (descendente)
+                        ordenColumna = 'extension DESC';
+                        break;
+                    case 4: // Ordenar por numPoblaciones (descendente)
+                        ordenColumna = 'numPoblaciones DESC';
+                        break;
+                }
+                var query = 'SELECT nombre, numHabitantes, extension, numPoblaciones FROM Provincias ORDER BY ' + ordenColumna;
+                tx.executeSql(query, [], function (tx, resultados) {
+                    var len = resultados.rows.length;
+                    var provincias = [];
+                    for (var i = 0; i < len; i++) {
+                        var registro = resultados.rows.item(i);
+                        var provincia = {
+                            nombre: registro.nombre,
+                            numHabitantes: registro.numHabitantes,
+                            extension: registro.extension,
+                            numPoblaciones: registro.numPoblaciones
+                        };
+                        provincias.push(provincia);
+                    }
+                    sessionStorage.setItem('provincias', JSON.stringify(provincias));
+                    //Llamamos a la función para mostrar los datos para que cuando se clickee en un botón se muestren los datos una vez ordenados
+                    mostrarDatos();
+                });
+            });
+        }
+    </script>
+</head>
+<body onload="cargar()">
+<!-- En este div se mostrá la tabla ordenada por alfabéticamente por nombre -->
+<div id="tabla"></div>
+<!-- Creamos los 3 botones y llamamos a cada uno a su respectiva función -->
+<button onclick="ordenarYAlmacenar(2)">Ordenar por Num. Habitantes</button>
+<button onclick="ordenarYAlmacenar(3)">Ordenar por Extensión</button>
+<button onclick="ordenarYAlmacenar(4)">Ordenar por Num. Poblaciones</button>
+<!-- En este div se mostrará el resultado de la función ordenarYAlmacenar() -->
+<div id="resultado"></div>
+</body>
+</html>
